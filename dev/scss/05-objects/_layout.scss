@@ -1,0 +1,157 @@
+.container{
+    display: grid;
+    grid-template-columns: var(--left) var(--center) var(--right);
+    grid-template-rows: var(--top) calc(100vh - var(--top));
+    grid-template-areas:
+        'menu header sidebar'
+        'menu tweets sidebar'
+    ;
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100vh;
+    position: relative;
+
+    @media (max-width: $mq6){
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'header sidebar'
+            'tweets sidebar'
+        ;
+    }
+}
+.header{
+    grid-area: header;
+    @include flex(flex, space-between, center, row, nowrap);
+    position: sticky;
+    width: 100%;
+    height: var(--top);
+
+    padding: 15px;
+    border-bottom: $border;
+    border-right: $border;
+    background-color: $white;
+}
+.tweets{
+    grid-area: tweets;
+    position: sticky;
+    width: 100%;
+    height: calc(100vh - var(--top));
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+
+    border-right: $border;
+    background-color: $white;
+
+    scrollbar-width: 0;
+    &::-webkit-scrollbar { display: none; }
+
+}
+.menu{
+    @include flex(flex, space-between, space-between, column, nowrap);
+    grid-area: menu;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    max-width: var(--left);
+    height: 100vh;
+
+    padding: 0 10px;
+    overflow-y: auto;
+    border-right: $border;
+    background-color: $white;
+
+    @media (max-width: $mq6){ display: none; }
+}
+.sidebar{
+    grid-area: sidebar;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    max-width: var(--right);
+    height: 100vh;
+    padding-left: 40px;
+    padding-right: 10px;
+
+    overflow-y: auto;
+    background-color: $white;
+    scrollbar-width: 0;
+    &::-webkit-scrollbar { display: none; }
+
+    @media(max-width: $mq3){ display: none; }
+}
+
+.messages{
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    width: 30vw;
+    max-width: 385px;
+    height: 50px;
+
+    overflow-y: hidden;
+
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+    transition: $transition;
+    background-color: $white;
+
+    @media(max-width: $mq3){ display: none; }
+}
+
+.modal{
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-areas: 'photo content';
+    z-index: 100;
+    display: none;
+
+    @media(max-width: $mq4){
+        grid-template-columns: 1fr;
+        grid-template-areas: 'photo ';
+    }
+
+    &__close{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        padding-bottom: 5px;
+
+        border-radius: 50%;
+        font-size: 40px;
+        background-color: rgba($black, .6);
+        color: $white;
+        transform: rotateZ(45deg);
+    }
+
+    &__attachment{
+        grid-area: photo;
+        padding-top: 30px;
+        padding-bottom: 70px;
+
+        &-picture{
+            width: 100%;
+            height: calc(100vh - 100px);
+            object-fit: cover;
+        }
+    }
+    &__content{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+
+        background-color: $white;
+        padding: 15px 20px;
+    }
+
+    .tweet__info{ margin-top: 15px; }
+    .tweet__stats{margin-top: 15px; width: 100%; }
+    .messages__item{ pointer-events: none; border-bottom: none; }
+}

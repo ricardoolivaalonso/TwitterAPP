@@ -1,0 +1,156 @@
+.menu{
+    &__list{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+        &__item{
+            display: flex;
+            position: relative;
+
+            @media(max-height: 620px) {
+                &:nth-of-type(6),
+                &:nth-of-type(7) {  display: none; }
+            }
+            @media(min-height: 705px) { margin-bottom: 8px; }
+            @media(min-height: 800px) { margin-bottom: 13px; }
+        }
+            &__link{
+                display: flex;
+                padding: 8.5px 10px;
+                border-radius: 30px;
+                transition: $transition;
+
+
+                &:hover .menu__svg,
+                &:hover .menu__title{
+                    fill: $blue;
+                    color: $blue;
+                    transition: $transition;
+                }
+                &:hover .menu__svg--stroke{ stroke: $blue; }
+                &:hover{
+                    background-color: rgba($blue, .1);
+                    transition: $transition;
+                }
+
+                &--fill{ padding: 8px; margin-top: 2px;}
+            }
+                &__title{
+                    @include f19();
+                    margin-left: 20px;
+                    margin-right: 15px;
+
+                    &::first-letter{ text-transform: capitalize; }
+
+                    @media(max-width: $mq1){ display: none; }
+                }
+                &__svg{
+                    &--fill{
+                        width: 30px;
+                        height: 30px;
+                        fill: $blue;
+                    }
+                    &--stroke{
+                        fill: transparent;
+                        stroke: $black;
+                        stroke-width: 1.25;
+                    }
+                    &--mobile{
+                        fill: $white;
+                        &:hover{ fill: $white; }
+                    }
+                }
+
+                &__icon{
+                    &--mobile{
+                        display: none;
+                        justify-content: center;
+                        align-items: center;
+                        width: 35px;
+                        height: 35px;
+                        fill: $black;
+                        @media(max-width: $mq1) { display: flex;}
+                    }
+                }
+                &__span{
+                    @media(max-width: $mq1) { display: none;}
+                }
+            &__button{
+                @include f15();
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                max-width: 230px;
+                height: 47px;
+                margin-top: 8.5px;
+
+                text-transform: capitalize;
+                border-radius: 30px;
+                background-color: $blue;
+                color: $white;
+                transition: $transition;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: darken($blue, 10);
+                    transition: $transition;
+                }
+
+                @media(max-width: $mq1) {
+                    width: 47px;
+                    height: 47px;
+                    border-radius: 50%;
+                }
+            }
+    &__settings{
+        margin-top: 8.5px;
+
+        &-link{
+            display: grid;
+            grid-template-columns: 35px 1fr;
+            grid-template-rows: min-content min-content;
+            grid-template-areas:
+                'avatar name'
+                'avatar id'
+            ;
+            grid-column-gap: 8px;
+            place-items: center left;
+
+            width: 100%;
+            max-width: 250px;
+            padding: 4px 8px;
+            height: 47px;
+            border-radius: 30px;
+            margin-bottom: 8px;
+
+            transition: $transition;
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgba($blue, .1);
+                transition: $transition;
+            }
+        }
+            &-avatar{
+                grid-area: avatar;
+                max-width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+            &-name{
+                @include f15();
+                grid-area: name;
+                text-transform: capitalize;
+            }
+            &-id{
+                grid-area: id;
+                @include f15l();
+            }
+            &-name,
+            &-id{
+                @media(max-width: $mq1) { display: none;}
+            }
+    }
+}

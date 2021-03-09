@@ -1,0 +1,47 @@
+section.sidebar 
+    div.sidebar__search
+        input.sidebar__input#sidebar-input(type="text" placeholder="Buscar en Twitter")
+        div.sidebar__icon
+            svg.sidebar__svg(viewbox='0 0 24 24')
+                path(d='M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z')
+        div.sidebar__icon.sidebar__icon--search#sidebar-trigger
+            svg.sidebar__svg(viewbox='0 0 15 15')
+                path(d='M8.914 7.5l5.793-5.793c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0L7.5 6.086 1.707.293c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414L6.086 7.5.293 13.293c-.39.39-.39 1.023 0 1.414.195.195.45.293.707.293s.512-.098.707-.293L7.5 8.914l5.793 5.793c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L8.914 7.5z')
+
+    section.sidebar__trending
+        h1.sidebar__main-title Qué está pasando
+        article.sidebar__item
+            div.sidebar__info
+                span.sidebar__topic COVID 19
+                span.sidebar__title La periodista ciudadana china Zhang Zhan es encarcelada por informar sobre los inicios del brote de COVID-19 en Wuhan
+                span.sidebar__number 25 mil Tweets
+            div.sidebar__avatar
+                img(src="img/sidebar-1.jpg" alt="img").sidebar__photo
+        article.sidebar__item
+            div.sidebar__info
+                span.sidebar__topic Política
+                span.sidebar__title Mitch McConnell
+                span.sidebar__number Tendencias sobre #[span.sidebar__ht Bernie], #[span.sidebar__ht Senate]
+            div.sidebar__avatar
+                img(src="img/sidebar-2.jpg" alt="img").sidebar__photo
+        article.sidebar__item
+            div.sidebar__info
+                span.sidebar__topic Toronto Start
+                span.sidebar__title Schitt's Creek character strikes debate on faking accents, stereotypes
+                span.sidebar__number 116 mil Tweets
+            div.sidebar__avatar
+                img(src="img/sidebar-3.jpg" alt="img").sidebar__photo
+        article.sidebar__item
+            div.sidebar__info
+                span.sidebar__topic Fútbol
+                span.sidebar__title Gareth Bale
+                span.sidebar__number 2,281 Tweets
+            div.sidebar__avatar
+                img(src="img/sidebar-4.jpg" alt="img").sidebar__photo
+        article.sidebar__item
+            div.sidebar__info
+                span.sidebar__topic Entretenimiento
+                span.sidebar__title El diseñador de moda Pierre Cardin murió a los 98 años
+                span.sidebar__number 5 mil Tweets
+            div.sidebar__avatar
+                img(src="img/sidebar-5.jpg" alt="img").sidebar__photo

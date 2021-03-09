@@ -1,0 +1,27 @@
+.header{
+    &__title{
+        @include f19();
+        text-transform: capitalize;
+    }
+    &__icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+
+        border-radius: 50%;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover{
+            background-color: rgba($blue, .1);
+            transition: $transition;
+        }
+    }
+        &__svg{
+            width: 22.5px;
+            height: 22.5px;
+            fill: $blue;
+        }
+}

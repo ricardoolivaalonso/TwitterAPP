@@ -1,0 +1,72 @@
+.messages{
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        width: 100%;
+
+        padding: 15px;
+        height: 50px;
+        border-bottom: $border;
+        background-color: $white;
+
+    }
+    &__main-title{ @include f19(); }
+    &__stats{ display: flex;}
+
+    &__slider{
+        width: 100%;
+        height: calc(100% - 50px);
+        overflow: hidden;
+    }
+        &__list{
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+        }
+        &__item{
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            grid-template-rows: min-content min-content 1fr;
+            grid-template-areas:
+                'avatar name'
+                'avatar id'
+                'avatar .'
+            ;
+            grid-column-gap: 15px;
+            justify-items: start;
+
+            width: 100%;
+            height: 70px;
+            padding: 8px 15px;
+
+            transition: $transition;
+            cursor: pointer;
+            border-bottom: $border;
+
+            &:hover{
+                background-color: rgba($blue, .1);
+                transition: $transition;
+            }
+        }
+
+        &__avatar{
+            grid-area: avatar;
+            max-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        &__name{
+            @include f15();
+            grid-area: name;
+            text-transform: capitalize;
+        }
+        &__id{
+            grid-area: id;
+            @include f15l();
+        }
+}
